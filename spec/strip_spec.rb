@@ -1,4 +1,4 @@
-require_relative '../strip.rb'
+require_relative '../strip_ext.rb'
 
 RSpec.describe Strip do
   context 'Unit' do
@@ -43,16 +43,16 @@ RSpec.describe Strip do
 
   context 'Executable' do
     it 'exists with proper permissions' do
-      expect {`./strip.rb hello`}.not_to raise_error
+      expect {`./strip_ext.rb hello`}.not_to raise_error
     end
 
     it 'outputs an empty string with no args' do
-      expect(`./strip.rb`).to eq ""
+      expect(`./strip_ext.rb`).to eq ""
     end
 
     it 'works' do
-      expect(`./strip.rb hello.rb`).to eq "hello"
-      expect(`./strip.rb goodbye.rb`).to eq "goodbye"
+      expect(`./strip_ext.rb hello.rb`).to eq "hello"
+      expect(`./strip_ext.rb goodbye.rb`).to eq "goodbye"
     end
   end
 end

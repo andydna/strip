@@ -1,2 +1,2 @@
 #!/bin/sh
-cp strip.rb ~/strip
+cp strip_ext.rb ~/bin/stripext
