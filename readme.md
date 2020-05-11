@@ -6,7 +6,9 @@ say you're working on `something.c` and have this kinda thing in your `.vimrc` f
 map <leader>cc :wa\|:!gcc %; ./a.out<cr>
 ```
 
-and `a.out` isn't cutting it. `something.c` should compile to `something`.
+and `a.out` isn't cutting it.
+
+`something.c` should compile to `something`.
 
 do this instead:
 
