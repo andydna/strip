@@ -1,6 +1,6 @@
 # What?
 
-so, say you're working on `something.c` and have this kinda thing in your `.vimrc` for a quick compile and run:
+say you're working on `something.c` and have this kinda thing in your `.vimrc` for a quick compile and run:
 
 ```vim
 map <leader>cc :wa\|:!gcc %; ./a.out<cr>
@@ -14,3 +14,10 @@ do this instead:
 map <leader>cc :wa\|:!gcc % -o $(stripext %); ./$(scripext %)<cr>
 end
 ```
+
+# Install
+* will create `~/bin/stripext`
+* pick your poison
+  * Ruby `./install_ruby.sh`
+  * Crystal `./install_crystal.sh`
+
