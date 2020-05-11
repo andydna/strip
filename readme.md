@@ -12,7 +12,6 @@ do this instead:
 
 ```vim
 map <leader>cc :wa\|:!gcc % -o $(stripext %); ./$(scripext %)<cr>
-end
 ```
 
 # Install
