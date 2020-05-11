@@ -6,7 +6,9 @@ so, say you're working on `something.c` and have this kinda thing in your `.vimr
 map <leader>cc :wa\|:!gcc %; ./a.out<cr>
 ```
 
-and a.out isn't cutting it. something.c should compile to something. do this instead:
+and `a.out` isn't cutting it. `something.c` should compile to `something`.
+
+do this instead:
 
 ```vim
 map <leader>cc :wa\|:!gcc % -o $(stripext %); ./$(scripext %)<cr>
