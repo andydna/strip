@@ -1,12 +1,9 @@
-require 'pry'
-require 'strip'
-
-$andydna_testing = true
+require_relative '../strip.rb'
 
 RSpec.describe Strip do
   context 'Unit' do
     context 'class methods' do
-      fit 'strips filename extensions' do
+      it 'strips filename extensions' do
         expect(Strip.extension("hello.rb")).to eq "hello"
         expect(Strip.extension("hello.c")).to eq "hello"
       end
@@ -18,6 +15,13 @@ RSpec.describe Strip do
     end
 
     context 'instance methods' do
+      specify "#output collaborates with class" do
+        skip "got to keep moving on"
+        klass = class_double(Strip)
+        expect(klass).to receive(:extension)
+        Strip.new.output
+      end
+
       specify "print_output" do
         stub_const('ARGV', ["hello.rb"])
         expect(Strip.new.output).to eq "hello"
@@ -35,17 +39,20 @@ RSpec.describe Strip do
       stub_const('ARGV', ["hello.rb"])
       expect {Strip.new.print_output}.to output("hello").to_stdout
     end
-
   end
 
   context 'Executable' do
     it 'exists with proper permissions' do
-      expect {`./strip`}.not_to raise_error
+      expect {`./strip.rb hello`}.not_to raise_error
     end
 
-    fit 'works' do
-      expect(`./strip hello.rb`).to eq "hello"
-      expect(`./strip goodbye.rb`).to eq "goodbye"
+    it 'outputs an empty string with no args' do
+      expect(`./strip.rb`).to eq ""
+    end
+
+    it 'works' do
+      expect(`./strip.rb hello.rb`).to eq "hello"
+      expect(`./strip.rb goodbye.rb`).to eq "goodbye"
     end
   end
 end

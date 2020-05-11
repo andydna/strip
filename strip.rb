@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
-require 'pry'
 
 class Strip
   def self.extension(string)
-    binding.pry
     if is_fname_with_ext? string
       string.split('.')[0..-2].join('.')
     else
@@ -12,7 +10,7 @@ class Strip
   end
 
   def self.is_fname_with_ext?(str)
-    binding.pry
+    return false unless str.is_a? String
     str.match? /\.\w+\z/
   end
 
@@ -28,9 +26,8 @@ class Strip
   def print_output
     print output
   end
-
 end
 
-unless $andydna_testing
+if __FILE__ == $0
   Strip.new.print_output
 end
